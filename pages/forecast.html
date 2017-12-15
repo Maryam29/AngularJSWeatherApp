@@ -1,0 +1,25 @@
+<!--API KEY 3e6cce65d4a6f4c92c4724dd228277a1-->
+<!--http://api.openweathermap.org/data/2.5/forecast?q=london&appid=3e6cce65d4a6f4c92c4724dd228277a1&cnt=2-->
+<!-- when we refresh the page city value typed in the textbox gets lost and goes back to default, we've to use cookies to persist data-->
+<p>
+    <a href="#/">Back to search
+    </a>
+</p>
+Forecast for {{city}}
+<hr/>
+Days:<a href="#!/forecast/2" ng-class="{'bg-primary':days === '2'}">2</a>|<a href="#!/forecast/5" ng-class="{'bg-primary':days === '5'}">5</a>|<a href="#!/forecast/7" ng-class="{'bg-primary':days === '7'}">7</a>
+<div ng-repeat="w in weatherResult.list">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{convertToDate(w.dt)|date:"dd.MM.y"}}</h3>
+                </div>
+                <div class="panel-body">
+                    Daytime temperature: {{convertToFahrenheit(w.main.temp)}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
